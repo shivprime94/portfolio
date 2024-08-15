@@ -123,7 +123,7 @@ export default function Page() {
                   Check out my latest work
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I have worked on a variety of projects, from simple
+                  I&apos;ve worked on a variety of projects, from simple
                   websites to complex web applications. Here are a few of my
                   favorites.
                 </p>
@@ -165,7 +165,7 @@ export default function Page() {
                   Check out my latest blogs
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  During my time in university, I explored many things, I'll share those learnings in the blogs
+                  During my time in university, I explored many things, I&apos;ll share those learnings in the blogs
                 </p>
               </div>
             </div>
