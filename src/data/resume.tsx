@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "Software Engineer. I love building things and helping people. Very active on X.",
   summary:
-    "I'm a final year student at IIT Kharagpur with experience of 7 internships, looking for opportunities in the field of Software Engineering and Generative AI.",
+    "I am a final year student at IIT Kharagpur with experience of 7 internships, looking for opportunities in the field of Software Engineering and Generative AI.",
   avatarUrl: "/me.png",
   skills: [
     "C",
