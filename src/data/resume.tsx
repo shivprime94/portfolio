@@ -1,7 +1,76 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
-export const DATA = {
+interface ResumeData {
+  name: string;
+  initials: string;
+  url: string;
+  location: string;
+  locationLink: string;
+  description: string;
+  summary: string;
+  avatarUrl: string;
+  skills: string[];
+  navbar: { href: string; icon: any; label: string }[];
+  contact: {
+    email: string;
+    tel: string;
+    social: {
+      GitHub: { name: string; url: string; icon: any; navbar: boolean };
+      LinkedIn: { name: string; url: string; icon: any; navbar: boolean };
+      Youtube: { name: string; url: string; icon: any; navbar: boolean };
+      email: { name: string; url: string; icon: any; navbar: boolean };
+    };
+  };
+  work: {
+    company: string;
+    href: string;
+    badges: any[];
+    location: string;
+    title: string;
+    logoUrl: string;
+    start: string;
+    end: string;
+    showDropdownIcon: boolean;
+    description: JSX.Element;
+  }[];
+  education: {
+    school: string;
+    href: string;
+    degree: string;
+    logoUrl: string;
+    start: string;
+    end: string;
+  }[];
+  projects?: {
+    title: string;
+    href: string;
+    dates: string;
+    active: boolean;
+    description: string;
+    technologies: string[];
+    links: { type: string; href: string; icon: JSX.Element }[];
+    image: string;
+    video: string;
+  }[];
+  blogs: {
+    title: string;
+    dates: string;
+    description: string;
+    image: string;
+    links: { title: string; href: string; icon: JSX.Element }[];
+  }[];
+  hackathons?: {
+    title: string;
+    dates: string;
+    location: string;
+    description: string;
+    image: string;
+    links: { title: string; icon: JSX.Element; href: string }[];
+  }[];
+}
+
+export const DATA: ResumeData = {
   name: "Shiv Shankar Kanaujiya",
   initials: "SSK",
   url: "https://shivprime94.me",
@@ -77,16 +146,19 @@ export const DATA = {
       title: "Software Development Engineer Intern",
       logoUrl: "/trilogy.png",
       start: "December 2024",
-      end: "February 2024",
-      description:
-        `Engineered a unified deployment system enabling one-click subdomain releases artifacts with live sandbox previews. 
-        Implemented functionality to download AI-generated code in NextJS file structure format and run hassle-free locally. 
-        Architected Gemini AI integration in Social Savvy SDK for multi-modal analysis to build brand image.
-        Incorporated Web Speech Synthesis API for voice chatbots, enabling AI podcasts generation using voice commands.
-        Extended the UI for custom thumbnail generation for AI podcasts, ensuring brand consistency and engaging visuals.
-        Utilized technologies and tools including NextJS, Python, AWS Lambda, DynamoDB, AWS CloudWatch, Gitpod,
-Docker, Kubernetes (EKS, ECS), Claude AI, OpenAI, Perplexity AI, Gemini AI, Eleven Labs, and CI/CD pipelines.
-Contributed in https://protosmith.ai/ and https://social-savvy.ti.trilogy.com/`,
+      end: "February 2025",
+      showDropdownIcon: true,
+      description: (
+        <ul className="list-disc space-y-2 pl-4 text-sm text-muted-foreground marker:text-primary">
+          <li>Engineered a unified deployment system enabling one-click subdomain releases artifacts with live sandbox previews.</li>
+          <li>Implemented functionality to download AI-generated code in NextJS file structure format and run hassle-free locally.</li>
+          <li>Architected Gemini AI integration in Social Savvy SDK for multi-modal analysis to build brand image.</li>
+          <li>Incorporated Web Speech Synthesis API for voice chatbots, enabling AI podcasts generation using voice commands.</li>
+          <li>Extended the UI for custom thumbnail generation for AI podcasts, ensuring brand consistency and engaging visuals.</li>
+          <li>Utilized technologies and tools including NextJS, Python, AWS Lambda, DynamoDB, AWS CloudWatch, Gitpod, Docker, Kubernetes (EKS, ECS), Claude AI, OpenAI, Perplexity AI, Gemini AI, Eleven Labs, and CI/CD pipelines.</li>
+          <li>Contributed in https://protosmith.ai/ and https://social-savvy.ti.trilogy.com/</li>
+        </ul>
+      ),
     },
     {
       company: "Microsoft",
@@ -97,11 +169,15 @@ Contributed in https://protosmith.ai/ and https://social-savvy.ti.trilogy.com/`,
       logoUrl: "/microsoft.png",
       start: "May 2024",
       end: "July 2024",
-      description:
-        `Improved data generation by 36.36% by creating C# parser using the Roslyn, Semantic Models, and Syntax Trees.
-        Extended the scope of parser in 2 more languages, Python and JavaScript using AST, and Esprima respectively.
-        Enhanced method-level namespace resolution by loading assemblies for NuGet packages and default namespaces and building trie for class libraries in 4 different configurations, achieving a 58% improvement in resolution efficiency.
-        Generated CodeBERT embeddings of SPO.Core repository, used FAISS for similarity search of embeddings and utilized them for code generation in in-repository-context, attaining 81.29% accuracy while testing on 100 samples`,
+      showDropdownIcon: true,
+      description: (
+        <ul className="list-disc space-y-2 pl-4 text-sm text-muted-foreground marker:text-primary">
+          <li>Improved data generation by 36.36% by creating C# parser using the Roslyn, Semantic Models, and Syntax Trees.</li>
+          <li>Extended the scope of parser in 2 more languages, Python and JavaScript using AST, and Esprima respectively.</li>
+          <li>Enhanced method-level namespace resolution by loading assemblies for NuGet packages and default namespaces and building trie for class libraries in 4 different configurations, achieving a 58% improvement in resolution efficiency.</li>
+          <li>Generated CodeBERT embeddings of SPO.Core repository, used FAISS for similarity search of embeddings and utilized them for code generation in in-repository-context, attaining 81.29% accuracy while testing on 100 samples.</li>
+        </ul>
+      ),
     },
     {
       company: "Mercor",
@@ -112,8 +188,12 @@ Contributed in https://protosmith.ai/ and https://social-savvy.ti.trilogy.com/`,
       logoUrl: "/mercor.jpeg",
       start: "Mar 2024",
       end: "Apr 2024",
-      description:
-        "Conducted 10+ interviews for software engineer role for the company, and provided feedback to the candidates",
+      showDropdownIcon: true,
+      description: (
+        <ul className="list-disc space-y-2 pl-4 text-sm text-muted-foreground marker:text-primary">
+          <li>Conducted 10+ interviews for software engineer role for the company, and provided feedback to the candidates.</li>
+        </ul>
+      ),
     },
     {
       company: "FunctionUp",
@@ -124,8 +204,12 @@ Contributed in https://protosmith.ai/ and https://social-savvy.ti.trilogy.com/`,
       logoUrl: "/functionup.jpeg",
       start: "May 2017",
       end: "August 2017",
-      description:
-        "Mentored 100+ students in the field of software engineering, and provided guidance on how to get started in the field. ",
+      showDropdownIcon: true,
+      description: (
+        <ul className="list-disc space-y-2 pl-4 text-sm text-muted-foreground marker:text-primary">
+          <li>Mentored 100+ students in the field of software engineering, and provided guidance on how to get started in the field.</li>
+        </ul>
+      ),
     },
     {
       company: "Pinch",
@@ -136,8 +220,14 @@ Contributed in https://protosmith.ai/ and https://social-savvy.ti.trilogy.com/`,
       logoUrl: "/pinch_me.jpeg",
       start: "December 2022",
       end: "January 2023",
-      description:
-        "Built the crypto trading app using React Native, enabling users to learn, share and trade cryptocurrencies together . Implemented the chat feature using Firebase Firestore, and integrated the trading API using WebSockets. Developed the user authentication system using Firebase Auth, and integrated the trading API using WebSockets. Implemented the chat feature using Firebase Firestore, and integrated the trading API using WebSockets",
+      showDropdownIcon: true,
+      description: (
+        <ul className="list-disc space-y-2 pl-4 text-sm text-muted-foreground marker:text-primary">
+          <li>Built the crypto trading app using React Native, enabling users to learn, share and trade cryptocurrencies together.</li>
+          <li>Implemented the chat feature using Firebase Firestore, and integrated the trading API using WebSockets.</li>
+          <li>Developed the user authentication system using Firebase Auth, and integrated the trading API using WebSockets.</li>
+        </ul>
+      ),
     },
     {
       company: "Actuary Life",
@@ -148,8 +238,14 @@ Contributed in https://protosmith.ai/ and https://social-savvy.ti.trilogy.com/`,
       logoUrl: "/actuarylife.jpeg",
       start: "May 2022",
       end: "June 2022",
-      description:
-        "Created a full-stack Learning Management System using React JS, Node JS, Express JS, and MySQL . Engineered actuarial valuation models to compute the pricing and reserving using Gradient Descent Algorithm. Analyzed and rendered the data in frontend app using datatables and the open-source JavaScript library ChartJS",
+      showDropdownIcon: true,
+      description: (
+        <ul className="list-disc space-y-2 pl-4 text-sm text-muted-foreground marker:text-primary">
+          <li>Created a full-stack Learning Management System using React JS, Node JS, Express JS, and MySQL.</li>
+          <li>Engineered actuarial valuation models to compute the pricing and reserving using Gradient Descent Algorithm.</li>
+          <li>Analyzed and rendered the data in frontend app using datatables and the open-source JavaScript library ChartJS.</li>
+        </ul>
+      ),
     },
     {
       company: "Pristine Escapes",
@@ -160,8 +256,14 @@ Contributed in https://protosmith.ai/ and https://social-savvy.ti.trilogy.com/`,
       logoUrl: "/pristine_escapes.jpeg",
       start: "October 2021",
       end: "January 2022",
-      description:
-        "Made all 750+ pages on the website responsive by editing each page in Elementor, a page builder for WordPress. Developed a custom WordPress theme using PHP, HTML, CSS, and JavaScript. Designed 40+ brochures using a vector graphics editor, Figma, for promoting different properties and locations",
+      showDropdownIcon: true,
+      description: (
+        <ul className="list-disc space-y-2 pl-4 text-sm text-muted-foreground marker:text-primary">
+          <li>Made all 750+ pages on the website responsive by editing each page in Elementor, a page builder for WordPress.</li>
+          <li>Developed a custom WordPress theme using PHP, HTML, CSS, and JavaScript.</li>
+          <li>Designed 40+ brochures using a vector graphics editor, Figma, for promoting different properties and locations.</li>
+        </ul>
+      ),
     },
     {
       company: "Yunlin University of Science and Technology",
@@ -172,10 +274,15 @@ Contributed in https://protosmith.ai/ and https://social-savvy.ti.trilogy.com/`,
       logoUrl: "/lime.svg",
       start: "October 2021",
       end: "January 2022",
-      description:
-        "Shifted platform from 1 canvas to 3 separate canvases, which increased the visibility of the platform by 33.33% . Developed a 3D graphing calculator using WebGL, Three.js, and JavaScript. Incorporated unit conversion, sliders, function for showing surfaces and volumes, and 360 degrees of auto-rotation. Implemented the 3D graphing calculator using WebGL, Three.js, and JavaScript",
+      showDropdownIcon: true,
+      description: (
+        <ul className="list-disc space-y-2 pl-4 text-sm text-muted-foreground marker:text-primary">
+          <li>Shifted platform from 1 canvas to 3 separate canvases, which increased the visibility of the platform by 33.33%.</li>
+          <li>Developed a 3D graphing calculator using WebGL, Three.js, and JavaScript.</li>
+          <li>Incorporated unit conversion, sliders, function for showing surfaces and volumes, and 360 degrees of auto-rotation.</li>
+        </ul>
+      ),
     },
-
   ],
   education: [
     {
