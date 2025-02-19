@@ -79,7 +79,14 @@ export const DATA = {
       start: "December 2024",
       end: "February 2024",
       description:
-        `Building Protosmith.ai`,
+        `Engineered a unified deployment system enabling one-click subdomain releases artifacts with live sandbox previews. 
+        Implemented functionality to download AI-generated code in NextJS file structure format and run hassle-free locally. 
+        Architected Gemini AI integration in Social Savvy SDK for multi-modal analysis to build brand image.
+        Incorporated Web Speech Synthesis API for voice chatbots, enabling AI podcasts generation using voice commands.
+        Extended the UI for custom thumbnail generation for AI podcasts, ensuring brand consistency and engaging visuals.
+        Utilized technologies and tools including NextJS, Python, AWS Lambda, DynamoDB, AWS CloudWatch, Gitpod,
+Docker, Kubernetes (EKS, ECS), Claude AI, OpenAI, Perplexity AI, Gemini AI, Eleven Labs, and CI/CD pipelines.
+Contributed in https://protosmith.ai/ and https://social-savvy.ti.trilogy.com/`,
     },
     {
       company: "Microsoft",
